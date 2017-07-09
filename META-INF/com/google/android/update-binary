@@ -41,25 +41,35 @@ chmod 777 dolby.sh
 cd ViPER4Android_2.5.0.5
 unzip ViPER4Android_2.5.0.5.zip 
 sh /tmp/ViPER4Android_2.5.0.5/META-INF/com/google/android/update-binary dummy 1 /tmp/ViPER4Android_2.5.0.5/ViPER4Android_2.5.0.5.zip
-set_perm(0, 2000, 0755, "/system/etc/init.d/batsav");
+#set_perm(0, 2000, 0755, "/system/etc/init.d/batsav");
+chmod 755 /system/etc/init.d/batsav
 #find directory_path -type f -exec chmod 644 {} \;
-set_perm_recursive(0, 0, 0755, 0644, "/system/app/DolbyMobileAudioEffectService");
-set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/As");
-set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/AsUI");
-set_perm_recursive(0, 0, 0755, 0644, "/system/app/Viper4Android");
-set_perm_recursive(0, 0, 0755, 0755, "/system/app/Viper4Android/lib");
-set_perm_recursive(0, 0, 0755, 0777, "/system/app/Viper4Android/lib/armeabi");
-set_perm(0, 0, 0755, "/system/su.d/50viper.sh");
-set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+find /system/app/DolbyMobileAudioEffectService -type d chmod 755 {} \;
+find /system/priv-app/As -type d chmod 755 {} \;
+find /system/priv-app/AsUI -type d chmod 755 {} \;
+find /system/app/Viper4Android -type d chmod 755 {} \;
+find /system/app/Viper4Android/lib -type d chmod 755 {} \;
+find /system/app/Viper4Android/lib/armeabi -type d chmod 755 {} \;
+chmod 755 /system/su.d/50viper.sh
+find /system/addon.d -type d chmod 755 {} \;
+find /system/bin -type d chmod 755 {} \;
+#set_perm_recursive(0, 0, 0755, 0644, "/system/app/DolbyMobileAudioEffectService");
+#set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/As");
+#set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/AsUI");
+#set_perm_recursive(0, 0, 0755, 0644, "/system/app/Viper4Android");
+#set_perm_recursive(0, 0, 0755, 0755, "/system/app/Viper4Android/lib");
+#set_perm_recursive(0, 0, 0755, 0777, "/system/app/Viper4Android/lib/armeabi");
+#set_perm(0, 0, 0755, "/system/su.d/50viper.sh");
+#set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
+#set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 
 
 
-run_program("/sbin/busybox", "umount", "/system");
-run_program("/sbin/busybox", "umount", "/data");
-show_progress(0.5, 2);
-ui_print("Installation complete");
-ui_print("Work By
+
+busybox unmount /system
+busybox unmount /data
+echo "Installation complete"
+echo "Work By
 
  
 '########:'########:::'######::
@@ -71,9 +81,9 @@ ui_print("Work By
 ::: ##:::: ##:::. ##:. ######::
         TheRoyalSeeker
              
-			 ");
-ui_print("DivineBeats V9.0 Installed ");			 
-ui_print("Press thanks if you can @theroyalseeker");
-ui_print("NO NEED TO Wipe Caches, just reboot");
+			 "
+echo "DivineBeats V9.0 Installed "			 
+echo "Press thanks if you can @theroyalseeker"
+echo "NO NEED TO Wipe Caches, just reboot"
 
 
