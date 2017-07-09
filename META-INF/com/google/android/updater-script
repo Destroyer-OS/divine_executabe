@@ -1,0 +1,147 @@
+ui_print("
+
+ 
+'########:'########:::'######::
+... ##..:: ##.... ##:'##... ##:
+::: ##:::: ##:::: ##: ##:::..::
+::: ##:::: ########::. ######::
+::: ##:::: ##.. ##::::..... ##:
+::: ##:::: ##::. ##::'##::: ##:
+::: ##:::: ##:::. ##:. ######::
+         TheRoyalSeeker
+		 
+             ");
+ui_print("======================================");
+ui_print("|           DivineBeats v9.0         |");
+ui_print("|                Gaana               |");
+ui_print("|             Dolby Atmos            |");
+ui_print("======================================");
+
+ui_print("TheRoyalSeeker presents DivineBeats v9.0");
+ui_print("Ultimate sound just seconds away");
+ui_print("Making system compatible...");
+show_progress(0.33, 1);
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/busybox", "mount", "/data");
+
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print ("                  DIVINE BEATS 9.0");
+ui_print ("                   TheRoyalSeeker ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+ui_print (" ");
+
+delete_recursive("/system/priv-app/AudioFX");
+delete_recursive("/system/app/ViPER4Android_FX_A4.x");
+delete_recursive("/system/app/Viper4Android");
+delete_recursive("/system/priv-app/Viper4Android");
+delete_recursive("/system/app/Material_Dark_V4A");
+delete_recursive("/system/priv-app/Material_Dark_V4A");
+delete_recursive("/data/app/com.vipercn.viper4android_v2-1");
+delete("/system/lib/soundfx/libv4a_fx_ics.so");
+delete("/system/lib/soundfx/libv4a_fx_jb.so");
+delete_recursive("/system/app/As");
+delete_recursive("/system/app/AsUI");
+delete_recursive("/system/priv-app/As");
+delete_recursive("/system/priv-app/SoundAlive");
+delete_recursive("/system/priv-app/AsUI");
+delete_recursive("/system/app/Ds");
+delete_recursive("/system/app/DsUI");
+delete_recursive("/system/priv-app/Ds");
+delete_recursive("/system/priv-app/DsUI");
+delete_recursive("/system/priv-app/SemcMusic");
+delete("/system/priv-app/TRSmods.apk");
+delete_recursive("/sdcard/DBEngine");
+
+package_extract_dir("system", "/system");
+show_progress(0.5, 2);
+
+#mount("yaffs2", "MTD", "modextras", "/extras");
+#package_extract_dir("extras", "/extras");
+
+package_extract_file("buildPropbak.sh", "/tmp/buildPropbak.sh");
+set_perm(0, 0, 0777, "/tmp/buildPropbak.sh");
+run_program("/tmp/buildPropbak.sh");
+delete("/tmp/buildPropbak.sh");
+
+package_extract_file("runme.sh", "/tmp/runme.sh");
+set_perm(0, 0, 0777, "/tmp/runme.sh");
+run_program("/tmp/runme.sh");
+delete("/tmp/runme.sh");
+
+package_extract_dir("DivineBeats", "/tmp");
+package_extract_file("divinebeats.sh", "/tmp/divinebeats.sh");
+set_perm(0, 0, 0777, "/tmp/divinebeats.sh");
+run_program("/tmp/divinebeats.sh");
+delete("/tmp/divinebeats.sh");
+
+package_extract_file("deepbuffer.sh", "/tmp/deepbuffer.sh");
+set_perm(0, 0, 0777, "/tmp/deepbuffer.sh");
+run_program("/tmp/deepbuffer.sh");
+delete("/tmp/deepbuffer.sh");
+
+package_extract_file("dolby.sh", "/tmp/dolby.sh");
+set_perm(0, 0, 0777, "/tmp/dolby.sh");
+run_program("/tmp/dolby.sh");
+delete("/tmp/dolby.sh");
+
+package_extract_dir("ViPER4Android_2.5.0.5", "/tmp/ViPER4Android_2.5.0.5");
+run_program("/sbin/busybox", "unzip", "/tmp/ViPER4Android_2.5.0.5/ViPER4Android_2.5.0.5.zip", "META-INF/com/google/android/*", "-d", "/tmp/ViPER4Android_2.5.0.5");
+run_program("/sbin/busybox", "sh", "/tmp/ViPER4Android_2.5.0.5/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/ViPER4Android_2.5.0.5/ViPER4Android_2.5.0.5.zip");
+
+set_perm(0, 2000, 0755, "/system/etc/init.d/batsav");
+set_perm_recursive(0, 0, 0755, 0644, "/system/app/DolbyMobileAudioEffectService");
+set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/As");
+set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app/AsUI");
+set_perm_recursive(0, 0, 0755, 0644, "/system/app/Viper4Android");
+set_perm_recursive(0, 0, 0755, 0755, "/system/app/Viper4Android/lib");
+set_perm_recursive(0, 0, 0755, 0777, "/system/app/Viper4Android/lib/armeabi");
+set_perm(0, 0, 0755, "/system/su.d/50viper.sh");
+set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+
+
+
+run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/busybox", "umount", "/data");
+show_progress(0.5, 2);
+ui_print("Installation complete");
+ui_print("Work By
+
+ 
+'########:'########:::'######::
+... ##..:: ##.... ##:'##... ##:
+::: ##:::: ##:::: ##: ##:::..::
+::: ##:::: ########::. ######::
+::: ##:::: ##.. ##::::..... ##:
+::: ##:::: ##::. ##::'##::: ##:
+::: ##:::: ##:::. ##:. ######::
+        TheRoyalSeeker
+             
+			 ");
+ui_print("DivineBeats V9.0 Installed ");			 
+ui_print("Press thanks if you can @theroyalseeker");
+ui_print("NO NEED TO Wipe Caches, just reboot");
+
+
