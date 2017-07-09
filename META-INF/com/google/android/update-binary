@@ -24,7 +24,7 @@ rm -rf /system/priv-app/DsUI
 rm -rf /system/priv-app/SemcMusic
 rm -rf /system/priv-app/TRSmods.apk
 rm -rf /sdcard/DBEngine
-cp /tmp/Divine/Divine.zip /tmp
+cp -rv /tmp/Divine/Divine.zip /tmp
 cd /tmp
 unzip Divine.zip
 cp system/* /system
