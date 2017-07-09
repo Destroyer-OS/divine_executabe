@@ -63,9 +63,6 @@ find /system/bin -type d chmod 755 {} \;
 #set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
 #set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 
-
-
-
 busybox unmount /system
 busybox unmount /data
 echo "Installation complete"
